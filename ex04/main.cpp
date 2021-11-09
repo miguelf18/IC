@@ -7,16 +7,16 @@ using namespace cv;
 int main(int argc, char** argv ) {
 
     if(argc != 3){
-		cout << "Usage: " << argv[0] << " <input_file> <output_file>" << endl;
-		return -1;
-	}
+        cout << "Usage: " << argv[0] << " <input_file> <output_file>" << endl;
+            return -1;
+    }
 
     Mat input = imread(argv[1]);
 
     if(!input.data) {
-		cout << "No image data" << endl;
+        cout << "No image data" << endl;
         return -2;
-	}
+    }
 
     int numRows = input.rows;
     int numCols = input.cols;
