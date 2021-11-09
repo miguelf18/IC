@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\DiogoLaptop\Desktop\IC\Labs\Project 01\ex04\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\DiogoLaptop\Desktop\IC\Labs\Project 01\ex04\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{AE8CA6A1-F58C-317F-B240-165B2DFA32DC}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
