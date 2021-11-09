@@ -8,7 +8,7 @@ int main(int argc, char** argv ) {
 
     if(argc != 3){
         cout << "Usage: " << argv[0] << " <input_file> <output_file>" << endl;
-            return -1;
+        return -1;
     }
 
     Mat input = imread(argv[1]);
