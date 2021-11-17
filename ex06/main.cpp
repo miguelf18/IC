@@ -2,20 +2,21 @@
 #include <stdio.h>
 #include <map>
 #include "AudioFile.h"
-
+#include <math.h>
 
 using namespace std;
 
 int main(int argc, char **argv)
 {
 
-    if (argc != 2)
+    if (argc != 3)
     {
-        cout << "Usage: " << argv[0] << " <input_file>" << endl;
+        cout << "Usage: " << argv[0] << " <input_file> <output_file>" << endl;
         return -1;
     }
+
     //cout << "input file: " << argv[1] << endl;//so para teste
-    
+    //cout << "output file: " << argv[2] << endl;//so para teste
 
     //Create an AudioFile object:
     AudioFile<double> audioFile;
@@ -25,11 +26,12 @@ int main(int argc, char **argv)
     int numSamples = audioFile.getNumSamplesPerChannel(); //Returns the number of samples per channel
     int numChannels = audioFile.getNumChannels(); //Returns the number of audio channels in the buffer
     int i, j;
+    double entropy=0;
 
     //cout << "numSamples: " << numSamples << endl;//so para teste
     //cout << "numChannels: " << numChannels << endl;//so para teste
     
-   std::map<double, int> repetitions;//mapa de occorrencias para o numero de vezes que uma determinada sample aparece
+   map<double, int> repetitions;//mapa de occorrencias para o numero de vezes que uma determinada sample aparece
                                    //num determinado canal
 
   
@@ -45,8 +47,17 @@ int main(int argc, char **argv)
                repetitions[currentSample]++;
        }
     }
+    std::ofstream ofs(argv[2]);
     for (auto &it : repetitions)
     {
-        cout <<"Sample " << it.first << " aparece " << it.second << " vezes \n";
+       // cout <<"Sample " << it.first << " aparece " << it.second << " vezes \n";
+       int item_value = it.second;
+       double probability = static_cast<double>(item_value) / (numSamples * numChannels);
+      // cout << "Total entropia: " << probability << endl;
+
+        entropy -= probability * log2(probability);
+       
     }
+    cout << "Total entropia: " << entropy << endl;
+    ofs.close();
 }
