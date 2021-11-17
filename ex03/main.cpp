@@ -9,25 +9,27 @@ int main(int argc, char** argv) {
         return -1;
     }
 
-    cout << "input file: " << argv[1] << endl;
-    cout << "output file: " << argv[2] << endl;
+    cout << "input audio file: " << argv[1] << endl;
+    cout << "output audio file: " << argv[2] << endl;
 
-    AudioFile<double> audioFile;
-    audioFile.load (argv[1]);
-    // audioFile.printSummary();
+    AudioFile<double> inputFile;
+    inputFile.load(argv[1]);
+    // inputFile.printSummary();
+
+    int numChannels = inputFile.getNumChannels();
+    int numSamples = inputFile.getNumSamplesPerChannel();
 
     AudioFile<double> outputFile;
-    outputFile.setNumChannels (audioFile.getNumChannels());
-    outputFile.setNumSamplesPerChannel (audioFile.getNumSamplesPerChannel());
-    // outputFile.printSummary();  
+    outputFile.setNumChannels(numChannels);
+    outputFile.setNumSamplesPerChannel(numSamples);
+    // outputFile.printSummary();
 
-    int channel = 0;
-    int numSamples = audioFile.getNumSamplesPerChannel();
-    for (int i=0; i<numSamples; i++)
-    {
-        double currentSample = audioFile.samples[channel][i];
-        outputFile.samples[channel][i] = currentSample;
+    for(int i=0; i<numChannels; i++) {
+        for (int j=0; j<numSamples; j++) {
+            double currentSample = inputFile.samples[i][j];
+            outputFile.samples[i][j] = currentSample;
+        }
     }
 
-    outputFile.save (argv[2]);
+    outputFile.save(argv[2]);
 }
