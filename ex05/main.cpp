@@ -10,11 +10,16 @@ using namespace std;
 // display histogram
 void show_histogram(map<char, int> *map)
 {
+    ofstream output_stream("letter_frequency.out");
     for(auto item : (*map))
     {
-        cout << item.first << " ";
-        cout << string(item.second, '*') << "[" << item.second << "]" << endl;
+        cout << item.first << ": ";
+        cout << item.second << endl;
+        output_stream << item.first << ": ";
+        output_stream << item.second << endl;
     }
+    output_stream.close();
+    cout << "Data: " << "letter_frequency.out" << endl;
 }
 
 // get total entropy
