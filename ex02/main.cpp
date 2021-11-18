@@ -18,14 +18,13 @@ int main(int argc, char** argv) {
   string line;
 
   while(getline(ifs, line)) {
-    cout << line << endl;
-    ofs << line << endl;
+    for(int i=0; i<line.length(); i++) {
+      cout << line[i];
+      ofs << line[i];
+    }
+    cout << endl;
+    ofs << endl;
   }
-
-  // só primeira linha:
-  //string x;
-  //ifs >> x;
-  //ofs << x << endl;
 
   return 0;
 }
