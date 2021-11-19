@@ -35,4 +35,6 @@ int main(int argc, char **argv)
         }
     }
     outputFile.save(argv[2]);
+
+    return 0;
 }
