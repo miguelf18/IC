@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\DiogoLaptop\OneDrive - Universidade de Aveiro\4º ano\IC\Labs\Project 01\ex11\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\DiogoLaptop\OneDrive - Universidade de Aveiro\4º ano\IC\Labs\Project 01\ex11\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B4D1302C-1C22-353C-A0BD-F6B18B7C70E9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
